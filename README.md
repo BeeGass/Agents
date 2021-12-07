@@ -81,13 +81,14 @@ TBA
 | World Models | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1809.01999)          |
 
 ### Citation
-```
-@misc{Gass2021,
-  author = {Gass, B.A.},
-  title = {Agents},
-  year = {2021},
-  publisher = {GitHub},
-  journal = {GitHub repository},
-  howpublished = {\url{https://github.com/BeeGass/Agents}}
+```bib
+@software{Gass_Agents_2021,
+  author = {Gass, B.A., Gass, B.A.},
+  doi = {10.5281/zenodo.1234},
+  month = {12},
+  title = {{Agents}},
+  url = {https://github.com/BeeGass/Agents},
+  version = {1.0.0},
+  year = {2021}
 }
 ```

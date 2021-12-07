@@ -15,11 +15,14 @@
 
 </p>
 
-A collection of Reinforcement Learning (RL) Methods I have implemented in both [jax](https://github.com/google/jax)/[flax](https://github.com/google/flax) and [pytorch](https://pytorch.org/) with particular effort put into readability and reproducibility. 
+A collection of Reinforcement Learning (RL) Methods I have implemented in [jax](https://github.com/google/jax)/[flax](https://github.com/google/flax), [flux](https://fluxml.ai/) and [pytorch](https://pytorch.org/) with particular effort put into readability and reproducibility. 
 
-### Requirements
+## Python 
+### Requirements For Jax
 - Python >= 3.8
 - PyTorch >= 1.10
+
+### Requirements For PyTorch
 - Jax 
 - TODO
 
@@ -32,6 +35,23 @@ $ TBA
 ```
 $ TBA
 ```
+
+## Julia
+### Requirements For Flux
+- TODO
+- TODO
+
+### Installation
+```
+$ TBA
+```
+
+### Usage
+```
+$ TBA
+```
+--- 
+
 **Config File Template**
 ```yaml
 TBA

@@ -56,7 +56,7 @@ TBA
 | PER         | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1511.05952)          |
 | Rainbow     | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1710.02298v1)        |
 
-----
+
 <h2 align="center">
   <b>Policy Results</b><br>
 </h2>
@@ -71,7 +71,7 @@ TBA
 | DDPG        | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1509.02971)          |
 | TD3         | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1802.09477)          |
 
-----
+
 <h2 align="center">
   <b>Fun Stuff</b><br>
 </h2>

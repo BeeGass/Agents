@@ -1,5 +1,6 @@
 <h1 align="center">
-  <b>Jax | RL Agents | PyTorch</b><br>
+  <b>RL Agents</b><br> 
+  <b>Jax | Flux | PyTorch</b><br> 
 </h1>
 
 <p align="center">

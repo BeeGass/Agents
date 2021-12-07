@@ -24,11 +24,10 @@ A collection of Reinforcement Learning (RL) Methods I have implemented in [jax](
 ## Python 
 ### Requirements For Jax
 - Python >= 3.8
-- PyTorch >= 1.10
+- jax
 
 ### Requirements For PyTorch
-- Jax 
-- TODO
+- PyTorch >= 1.10
 
 ### Installation
 ```

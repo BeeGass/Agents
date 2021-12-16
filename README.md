@@ -26,17 +26,24 @@ A collection of Reinforcement Learning (RL) Methods I have implemented in [jax](
 - Python >= 3.8
 - jax
 
+#### Installation
+```
+$ git clone https://github.com/BeeGass/Agents.git
+```
+
+#### Usage
+```
+$ cd Agents/agents-jax
+$ python main.py 
+```
+
 ### Requirements For PyTorch
 - PyTorch >= 1.10
 
-### Installation
+#### Usage
 ```
-$ TBA
-```
-
-### Usage
-```
-$ TBA
+$ cd Agents/agents-pytorch
+$ python main.py 
 ```
 
 ## Julia
@@ -44,14 +51,10 @@ $ TBA
 - TODO
 - TODO
 
-### Installation
+#### Usage
 ```
-$ TBA
-```
-
-### Usage
-```
-$ TBA
+$ cd Agents/agents-flux
+$ # TBA 
 ```
 --- 
 

@@ -70,6 +70,17 @@ TBA
 
 ----
 <h2 align="center">
+  <b>Preliminary RL Implementations</b><br>
+</h2>
+
+| Model                                          | Code    | Config  |
+|------------------------------------------------|---------|---------|
+| Dynamic Programming of Markov Decision Process | &#9744; | &#9744; |
+|                                                |         |         |
+
+
+----
+<h2 align="center">
   <b> Off-Policy Results</b><br>
 </h2>
 

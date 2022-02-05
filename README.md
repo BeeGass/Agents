@@ -73,10 +73,10 @@ TBA
   <b>Preliminary RL Implementations</b><br>
 </h2>
 
-| Model                                          | Code    | Config  |
-|------------------------------------------------|---------|---------|
-| Dynamic Programming of Markov Decision Process | &#9744; | &#9744; |
-|                                                |         |         |
+| Model                                          | Code    | Config  | Paper                                                                   |
+|------------------------------------------------|---------|---------|-------------------------------------------------------------------------|
+| Dynamic Programming of Markov Decision Process | &#9744; | &#9744; | https://github.com/yingxue-zhang/DS595-RL-Projects/tree/master/Project1 |
+|                                                |         |         |                                                                         |
 
 
 ----

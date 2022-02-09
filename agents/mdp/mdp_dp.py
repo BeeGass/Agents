@@ -29,16 +29,14 @@ the parameters P, nS, nA, gamma are defined as follows:
 		Discount factor. Number in range [0, 1)
 """
 
-def val_function(P, transitions, nS, nA, policy, gamma):
-    val = 0
-    for action in range(len(nA)):
-        for p_sa_x in transitions:
-            (probability, nextstate, reward, terminal) = p_sa_x
-            if probability == 0 or terminal:
-                print('achieved terminal')
-                return 0
-            elif probability > 0:
-                return np.sum(policy) * np.sum(probability * (reward + (gamma * val_function(P, P[nextstate][action], nS, nA, policy, gamma))))
+def val_function(P, state, action, nS, nA, policy, gamma):
+    for p_sa_x in P[state][action]:
+        (probability, nextstate, reward, terminal) = p_sa_x
+        if probability == 0 or terminal:
+            print('achieved terminal')
+            return 0
+        elif probability > 0:
+            return policy[state, action] * (probability * (reward + (gamma * val_function(P, nextstate, action, nS, nA, policy, gamma))))
 
 
 def policy_evaluation(P, nS, nA, policy, gamma=0.9, tol=1e-8):
@@ -63,27 +61,20 @@ def policy_evaluation(P, nS, nA, policy, gamma=0.9, tol=1e-8):
     value_function = np.zeros(nS)
     ############################
     # YOUR IMPLEMENTATION HERE #
-
-    delta = tol
-    while delta >= tol:
+    while True:
+        delta = 0
         for s in range(nS): 
             v = value_function[s]
             val = 0
             for a in range(nA):
                 for (probability, nextstate, reward, terminal) in P[s][a]:
-                    if not probability == 0 or not terminal:
-                        val = val + np.sum(policy) * np.sum(probability * (reward + (gamma * value_function[nextstate])))
-                        # print(val)
-                    # value_function[s] = val_function(P, P[s][a], nS, nA, policy, gamma) 
-            #print("val: ", val)
+                    val = val + policy[s, a] * (probability * (reward + (gamma * value_function[nextstate])))
             value_function[s] = val
-            delta = max(abs(v - value_function[s]), delta)
-            #print("value_function[s]", value_function[s])
-            #print("v", v)
-
+            delta = max(delta, abs(v - value_function[s]))
         if delta < tol:
-            break 
+            break
     ############################
+    print(value_function)
     return value_function
 
 

@@ -73,14 +73,16 @@ def policy_evaluation(P, nS, nA, policy, gamma=0.9, tol=1e-8):
                 for (probability, nextstate, reward, terminal) in P[s][a]:
                     if not probability == 0 or not terminal:
                         val = val + np.sum(policy) * np.sum(probability * (reward + (gamma * value_function[nextstate])))
-                        print(val)
+                        # print(val)
                     # value_function[s] = val_function(P, P[s][a], nS, nA, policy, gamma) 
-            print("val: ", val)
+            #print("val: ", val)
             value_function[s] = val
-            print("value_function[s]", value_function[s])
-            print("v", v)
-            if abs(v - value_function[s]) < tol:
-                delta = max(abs(v - value_function[s]), delta) 
+            delta = max(abs(v - value_function[s]), delta)
+            #print("value_function[s]", value_function[s])
+            #print("v", v)
+
+        if delta < tol:
+            break 
     ############################
     return value_function
 

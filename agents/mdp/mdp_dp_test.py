@@ -55,6 +55,7 @@ def test_policy_improvement():
     '''policy_improvement (20 points)'''
     np.random.seed(595)
     V1 = np.random.rand(env.nS)
+    print("-------------------------Beginning first test")
     new_policy1 = policy_improvement(env.P, env.nS, env.nA, V1)
     test_policy1 = np.array([[1., 0., 0., 0.],
        [0., 0., 0., 1.],
@@ -72,8 +73,9 @@ def test_policy_improvement():
        [0., 0., 0., 1.],
        [0., 0., 1., 0.],
        [1., 0., 0., 0.]])
-
+    
     V2 = np.zeros(env.nS)
+    print("-------------------------Beginning second test")
     new_policy2 = policy_improvement(env.P, env.nS, env.nA, V2)
     test_policy2 = np.array([[1., 0., 0., 0.],
        [1., 0., 0., 0.],
@@ -91,9 +93,13 @@ def test_policy_improvement():
        [1., 0., 0., 0.],
        [0., 1., 0., 0.],
        [1., 0., 0., 0.]])
-    
-    assert np.allclose(test_policy1,new_policy1)
+
+    print("patrick")
     assert np.allclose(test_policy2,new_policy2)
+    print("star")
+    print("sponge")
+    assert np.allclose(test_policy1,new_policy1)
+    print("bob")
 
     
 #---------------------------------------------------------------
@@ -148,14 +154,25 @@ def test_policy_iteration():
     optimal_V2 = np.array([0.59 , 0.656, 0.729, 0.656, 0.656, 0. , 0.81 , 0. , 0.729,
        0.81 , 0.9  , 0. , 0. , 0.9 , 1. , 0. ])
 
-
+    print("one")
     assert np.allclose(policy_pi1,optimal_policy)
+    print("one")
+    print("two")
+    print(f"V_pi1: {V_pi1}\noptimal_v: {optimal_V}")
     assert np.allclose(V_pi1,optimal_V,atol=1e-3)
+    print("two")
+    print("three")
     assert np.allclose(policy_pi2,optimal_policy)
+    print("three")
+    print("four")
     assert np.allclose(V_pi2,optimal_V,atol=1e-3)
+    print("four")
+    print("five")
     assert np.allclose(policy_pi3,optimal_policy2)
+    print("five")
+    print("six")
     assert np.allclose(V_pi3,optimal_V2,atol=1e-3)
-
+    print("six")
 
 #---------------------------------------------------------------
 def test_value_iteration():

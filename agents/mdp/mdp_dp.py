@@ -29,16 +29,6 @@ the parameters P, nS, nA, gamma are defined as follows:
 		Discount factor. Number in range [0, 1)
 """
 
-def val_function(P, state, action, nS, nA, policy, gamma):
-    for p_sa_x in P[state][action]:
-        (probability, nextstate, reward, terminal) = p_sa_x
-        if probability == 0 or terminal:
-            print('achieved terminal')
-            return 0
-        elif probability > 0:
-            return policy[state, action] * (probability * (reward + (gamma * val_function(P, nextstate, action, nS, nA, policy, gamma))))
-
-
 def policy_evaluation(P, nS, nA, policy, gamma=0.9, tol=1e-8):
     """Evaluate the value function from a given policy.
 
@@ -67,14 +57,13 @@ def policy_evaluation(P, nS, nA, policy, gamma=0.9, tol=1e-8):
             v = value_function[s]
             val = 0
             for a in range(nA):
-                for (probability, nextstate, reward, terminal) in P[s][a]:
-                    val = val + policy[s, a] * (probability * (reward + (gamma * value_function[nextstate])))
+                for (probability, next_state, reward, terminal) in P[s][a]:
+                    val += (policy[s, a] * (probability * (reward + (gamma * value_function[next_state])))) 
             value_function[s] = val
             delta = max(delta, abs(v - value_function[s]))
         if delta < tol:
             break
     ############################
-    print(value_function)
     return value_function
 
 
@@ -87,7 +76,7 @@ def policy_improvement(P, nS, nA, value_from_policy, gamma=0.9):
         defined at beginning of file
     value_from_policy: np.ndarray
         The value calculated from the policy
-    Returns:
+    Returns:new_policy
     --------
     new_policy: np.ndarray[nS,nA]
         A 2D array of floats. Each float is the probability of the action
@@ -98,7 +87,23 @@ def policy_improvement(P, nS, nA, value_from_policy, gamma=0.9):
     new_policy = np.ones([nS, nA]) / nA
 	############################
 	# YOUR IMPLEMENTATION HERE #
-
+    while True:
+        V = value_from_policy
+        policy_stable = True
+        for s in range(nS):
+            old_action = np.argmax(new_policy[s])
+            q_vals = np.zeros(nA)
+            for a in range(nA):
+                for (probability, next_state, reward, terminal) in P[s][a]:
+                    q_vals[a] += (reward + (gamma * (probability * V[next_state])))
+            best_action = np.argmax(q_vals, axis=0)
+            if not old_action == best_action:
+                policy_stable = False
+            matrix = np.zeros(nA)
+            matrix[best_action] = 1
+            new_policy[s] = matrix
+        if policy_stable:
+            return new_policy
 	############################
     return new_policy
 
@@ -124,7 +129,13 @@ def policy_iteration(P, nS, nA, policy, gamma=0.9, tol=1e-8):
     new_policy = policy.copy()
 	############################
 	# YOUR IMPLEMENTATION HERE #
+    while True:
+        old_policy = new_policy 
+        V = policy_evaluation(P, nS, nA, new_policy, gamma, tol)
+        new_policy = policy_improvement(P, nS, nA, V, gamma)
 
+        if np.allclose(old_policy, new_policy):
+            break
 	############################
     return new_policy, V
 
@@ -150,7 +161,22 @@ def value_iteration(P, nS, nA, V, gamma=0.9, tol=1e-8):
     V_new = V.copy()
     ############################
     # YOUR IMPLEMENTATION HERE #
+    while True:
+    	old_V = V_new
+    	V_new = np.zeros(nS)	
+    	for s in range(nS):
+    		action_values = np.zeros(nA)
+    		for a in range(nA):
+    			val = 0
+    			for (probability, next_state, reward, terminal) in P[s][a]:
+    				val += probability * (reward + gamma * old_V[next_state])
+    			action_values[a] = val	
+    		V_new[s] = max(action_values)
 
+    	if max(abs(old_V - V_new)) < tol:
+            break	 
+
+    policy_new = policy_improvement(P, nS, nA, V_new, gamma)
     ############################
     return policy_new, V_new
 
@@ -172,16 +198,24 @@ def render_single(env, policy, render = False, n_episodes=100):
     ------
     total_rewards: the total number of rewards achieved in the game.
     """
+
     total_rewards = 0
+    
     for _ in range(n_episodes):
         ob = env.reset() # initialize the episode
         done = False
+        state = ob
         while not done:
             if render:
                 env.render() # render the game
             ############################
             # YOUR IMPLEMENTATION HERE #
-            
+            # print(policy[state])
+            action = np.random.choice(env.nA, p = policy[state])
+            # print(action)
+            (state, reward, done, info) = env.step(action)
+            total_rewards += reward
+    
     return total_rewards
 
 

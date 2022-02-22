@@ -74,7 +74,7 @@ TBA
 </h2>
 
 
-| Model                                        | Numpy/Vanilla | Jax/Flax |  Flux   | Config  | Paper                                                                                        |
+| Model                                        | NumPy/Vanilla | Jax/Flax |  Flux   | Config  | Paper                                                                                        |
 |:-------------------------------------------- |:-------------:|:--------:|:-------:|:-------:|:-------------------------------------------------------------------------------------------- |
 | Policy Evaluation                            |    &#9745;    | &#9744;  | &#9744; | &#9744; | [DS595-RL-Projects](https://github.com/yingxue-zhang/DS595-RL-Projects/tree/master/Project1) |
 | Policy Improvement                           |    &#9745;    | &#9744;  | &#9744; | &#9744; | [DS595-RL-Projects](https://github.com/yingxue-zhang/DS595-RL-Projects/tree/master/Project1) |

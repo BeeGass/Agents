@@ -77,7 +77,7 @@ TBA
 | Model                                        | PyTorch | Jax/Flax |  Flux   | Config  | Paper                                                                                        |
 |:-------------------------------------------- |:-------:|:--------:|:-------:|:-------:|:-------------------------------------------------------------------------------------------- |
 | Policy Evaluation                            | &#9745; | &#9744;  | &#9744; | &#9744; | [DS595-RL-Projects](https://github.com/yingxue-zhang/DS595-RL-Projects/tree/master/Project1) |
-| Policy Improvement                           | &#9744; | &#9744;  | &#9744; | &#9744; | [DS595-RL-Projects](https://github.com/yingxue-zhang/DS595-RL-Projects/tree/master/Project1) |
+| Policy Improvement                           | &#9745; | &#9744;  | &#9744; | &#9744; | [DS595-RL-Projects](https://github.com/yingxue-zhang/DS595-RL-Projects/tree/master/Project1) |
 | Policy Iteration                             | &#9745; | &#9744;  | &#9744; | &#9744; | [DS595-RL-Projects](https://github.com/yingxue-zhang/DS595-RL-Projects/tree/master/Project1) |
 | Value Iteration                              | &#9745; | &#9744;  | &#9744; | &#9744; | [DS595-RL-Projects](https://github.com/yingxue-zhang/DS595-RL-Projects/tree/master/Project1) |
 | On-policy first visit Monte-Carlo prediction | &#9744; | &#9744;  | &#9744; | &#9744; | [DS595-RL-Projects](https://github.com/yingxue-zhang/DS595-RL-Projects/tree/master/Project2) |

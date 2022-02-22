@@ -122,9 +122,11 @@ TBA
   <b>Fun Stuff</b><br>
 </h2>
 
-| Model        | PyTorch | Jax/Flax |  Flux   | Config  | Paper                                    |
-|:------------ |:-------:|:--------:|:-------:|:-------:|:---------------------------------------- |
-| World Models | &#9744; | &#9744;  | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1809.01999) |
+| Model               | PyTorch | Jax/Flax |  Flux   | Config  | Paper                                        |
+|:------------------- |:-------:|:--------:|:-------:|:-------:|:-------------------------------------------- |
+| World Models        | &#9744; | &#9744;  | &#9744; | &#9744; | [Link](https://arxiv.org/pdf/1803.10122.pdf) |
+| Dream to Control    | &#9744; | &#9744;  | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1912.01603)     |
+| Dream to Control v2 | &#9744; | &#9744;  | &#9744; | &#9744; | [Link](https://arxiv.org/abs/2010.02193)     |
 
 ### Citation
 ```bib

@@ -73,16 +73,17 @@ TBA
   <b>Preliminary RL Implementations</b><br>
 </h2>
 
-| Model              | Code    | Config  | Paper                                                                                        |
-|--------------------|---------|---------|----------------------------------------------------------------------------------------------|
-| Policy Evaluation                            | &#9745; | &#9744; | [DS595-RL-Projects](https://github.com/yingxue-zhang/DS595-RL-Projects/tree/master/Project1) |
-| Policy Improvement                           | &#9745; | &#9744; | [DS595-RL-Projects](https://github.com/yingxue-zhang/DS595-RL-Projects/tree/master/Project1) |
-| Policy Iteration                             | &#9745; | &#9744; | [DS595-RL-Projects](https://github.com/yingxue-zhang/DS595-RL-Projects/tree/master/Project1) |
-| Value Iteration                              | &#9745; | &#9744; | [DS595-RL-Projects](https://github.com/yingxue-zhang/DS595-RL-Projects/tree/master/Project1) |
-| On-policy first visit Monte-Carlo prediction | &#9744; | &#9744; | [DS595-RL-Projects](https://github.com/yingxue-zhang/DS595-RL-Projects/tree/master/Project2) |
-| On-policy first visit Monte-Carlo control    | &#9744; | &#9744; | [DS595-RL-Projects](https://github.com/yingxue-zhang/DS595-RL-Projects/tree/master/Project2) |
-| Sarsa (on-policy TD control)                 | &#9744; | &#9744; | [DS595-RL-Projects](https://github.com/yingxue-zhang/DS595-RL-Projects/tree/master/Project2) |
-| Q-learing (off-policy TD control)            | &#9744; | &#9744; | [DS595-RL-Projects](https://github.com/yingxue-zhang/DS595-RL-Projects/tree/master/Project2) |
+
+| Model                                        | PyTorch | Jax/Flax |  Flux   | Config  | Paper                                                                                        |
+|:-------------------------------------------- |:-------:|:--------:|:-------:|:-------:|:-------------------------------------------------------------------------------------------- |
+| Policy Evaluation                            | &#9745; | &#9744;  | &#9744; | &#9744; | [DS595-RL-Projects](https://github.com/yingxue-zhang/DS595-RL-Projects/tree/master/Project1) |
+| Policy Improvement                           | &#9744; | &#9744;  | &#9744; | &#9744; | [DS595-RL-Projects](https://github.com/yingxue-zhang/DS595-RL-Projects/tree/master/Project1) |
+| Policy Iteration                             | &#9745; | &#9744;  | &#9744; | &#9744; | [DS595-RL-Projects](https://github.com/yingxue-zhang/DS595-RL-Projects/tree/master/Project1) |
+| Value Iteration                              | &#9745; | &#9744;  | &#9744; | &#9744; | [DS595-RL-Projects](https://github.com/yingxue-zhang/DS595-RL-Projects/tree/master/Project1) |
+| On-policy first visit Monte-Carlo prediction | &#9744; | &#9744;  | &#9744; | &#9744; | [DS595-RL-Projects](https://github.com/yingxue-zhang/DS595-RL-Projects/tree/master/Project2) |
+| On-policy first visit Monte-Carlo control    | &#9744; | &#9744;  | &#9744; | &#9744; | [DS595-RL-Projects](https://github.com/yingxue-zhang/DS595-RL-Projects/tree/master/Project2) |
+| Sarsa (on-policy TD control)                 | &#9744; | &#9744;  | &#9744; | &#9744; | [DS595-RL-Projects](https://github.com/yingxue-zhang/DS595-RL-Projects/tree/master/Project2) |
+| Q-learing (off-policy TD control)            | &#9744; | &#9744;  | &#9744; | &#9744; | [DS595-RL-Projects](https://github.com/yingxue-zhang/DS595-RL-Projects/tree/master/Project2) |
  
 
 ----
@@ -91,14 +92,15 @@ TBA
 </h2>
 
 
-| Model       | Code    | Config  | Paper                                             |
-|-------------|---------|---------|---------------------------------------------------|
-| DQN         | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1312.5602)           |
-| DRQN        | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1507.06527)          |
-| Dueling-DQN | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1511.06581)          |
-| Double-DQN  | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1509.06461)          |
-| PER         | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1511.05952)          |
-| Rainbow     | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1710.02298v1)        |
+
+| Model       | PyTorch | Jax/Flax |  Flux   | Config  | Paper                                      |
+|:----------- |:-------:|:--------:|:-------:|:-------:|:------------------------------------------ |
+| DQN         | &#9744; | &#9744;  | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1312.5602)    |
+| DRQN        | &#9744; | &#9744;  | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1507.06527)   |
+| Dueling-DQN | &#9744; | &#9744;  | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1511.06581)   |
+| Double-DQN  | &#9744; | &#9744;  | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1509.06461)   |
+| PER         | &#9744; | &#9744;  | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1511.05952)   |
+| Rainbow     | &#9744; | &#9744;  | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1710.02298v1) |
 
 
 <h2 align="center">
@@ -106,23 +108,23 @@ TBA
 </h2>
 
 
-| Model       | Code    | Config  | Paper                                             |
-|-------------|---------|---------|---------------------------------------------------|
-| PPO         | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1312.6114)           |
-| SAC         | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1801.01290)          |
-| A2C         | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1602.01783)          |
-| A3C         | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1602.01783)          |
-| DDPG        | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1509.02971)          |
-| TD3         | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1802.09477)          |
+| Model | PyTorch | Jax/Flax |  Flux   | Config  | Paper                                    |
+|:----- |:-------:|:--------:|:-------:|:-------:|:---------------------------------------- |
+| PPO   | &#9744; | &#9744;  | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1312.6114)  |
+| SAC   | &#9744; | &#9744;  | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1801.01290) |
+| A2C   | &#9744; | &#9744;  | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1602.01783) |
+| A3C   | &#9744; | &#9744;  | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1602.01783) |
+| DDPG  | &#9744; | &#9744;  | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1509.02971) |
+| TD3   | &#9744; | &#9744;  | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1802.09477) |
 
 
 <h2 align="center">
   <b>Fun Stuff</b><br>
 </h2>
 
-| Model        | Code    | Config  | Paper                                             |
-|--------------|---------|---------|---------------------------------------------------|
-| World Models | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1809.01999)          |
+| Model        | PyTorch | Jax/Flax |  Flux   | Config  | Paper                                    |
+|:------------ |:-------:|:--------:|:-------:|:-------:|:---------------------------------------- |
+| World Models | &#9744; | &#9744;  | &#9744; | &#9744; | [Link](https://arxiv.org/abs/1809.01999) |
 
 ### Citation
 ```bib

@@ -33,7 +33,9 @@ def initial_policy(observation):
     # YOUR IMPLEMENTATION HERE #
     # get parameters from observation
     score, dealer_score, usable_ace = observation
-    # action
+    action = 1 
+    if score >= 20:
+        action = 0 
 
     ############################
     return action
@@ -67,37 +69,51 @@ def mc_prediction(policy, env, n_episodes, gamma = 1.0):
 
     ############################
     # YOUR IMPLEMENTATION HERE #
-    # loop each episode
+    for e in range(n_episodes):
+        state = env.reset()
 
         # initialize the episode
+        episode_buffer = [] # list that will contain the samples of the state, action and reward of the episode
 
         # generate empty episode list
+        state_visited = [] 
 
         # loop until episode generation is done
-
-
-            # select an action
-
-            # return a reward and new state
+        while True:
+            # select an action 
+            action = policy(state)
+            
+            # return a reward and new state 
+            next_state, reward, done, _ = env.step(action)
 
             # append state, action, reward to episode
+            episode_buffer.insert(0, (state, action, reward)) # format episode to start at timestep 0 and end at timestep T 
 
-            # update state to new state
+            if done:
+                break
+            state = next_state
+            # update state to new state 
 
 
-
-
+        G = 0 # average reward 
         # loop for each step of episode, t = T-1, T-2,...,0
+        for step in episode_buffer:
+            (state, _, reward) = step
+            # compute G 
+            G = (gamma * G) + reward 
 
-            # compute G
+            # unless state_t appears in states 
+            if state not in state_visited:
+                state_visited.append(state)
 
-            # unless state_t appears in states
-
-                # update return_count
+                # update return_count 
+                returns_count[state] += 1 
 
                 # update return_sum
+                returns_sum[state] += G 
 
                 # calculate average return for this state over all sampled episodes
+                V[state] = returns_sum[state] / returns_count[state] 
 
 
 
@@ -132,6 +148,7 @@ def epsilon_greedy(Q, state, nA, epsilon = 0.1):
     ############################
     # YOUR IMPLEMENTATION HERE #
 
+    if 
 
 
 

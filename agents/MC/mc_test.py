@@ -12,7 +12,7 @@ from mc import *
     You could test the correctness of your code by 
     typing 'nosetests -v mc_test.py' in the terminal
 """
-env = gym.make('Blackjack-v0')
+env = gym.make('Blackjack-v1')
 
 #---------------------------------------------------------------
 def test_python_version():

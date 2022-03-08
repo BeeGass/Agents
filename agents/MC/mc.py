@@ -40,6 +40,29 @@ def initial_policy(observation):
     ############################
     return action
 
+def generate_trajectory(policy, env):
+    state = env.reset()
+    episode_buffer = []
+
+    # loop until episode generation is done
+    while True:
+        # select an action 
+        action = policy(state)
+            
+        # return a reward and new state 
+        next_state, reward, done, _ = env.step(action)
+
+        # append state, action, reward to episode
+        episode_buffer.insert(0, (state, action, reward)) # format episode to start at timestep 0 and end at timestep T 
+
+        if done:
+            break
+        state = next_state
+        # update state to new state
+
+    return episode_buffer
+
+
 def mc_prediction(policy, env, n_episodes, gamma = 1.0):
     """Given policy using sampling to calculate the value function
         by using Monte Carlo first visit algorithm.
@@ -147,11 +170,11 @@ def epsilon_greedy(Q, state, nA, epsilon = 0.1):
     """
     ############################
     # YOUR IMPLEMENTATION HERE #
-
-    if 
-
-
-
+    random_val = random.random()
+    action = random.randrange(nA)
+    if random_val < 1 - epsilon:
+        action = np.argmax(Q[state])
+    
     ############################
     return action
 
@@ -184,42 +207,64 @@ def mc_control_epsilon_greedy(env, n_episodes, gamma = 1.0, epsilon = 0.1):
     returns_count = defaultdict(float)
     # a nested dictionary that maps state -> (action -> action-value)
     # e.g. Q[state] = np.darrary(nA)
-    Q = defaultdict(lambda: np.zeros(env.action_space.n))
-
+    nA = env.action_space.n
+    eps = 1
+    Q = defaultdict(lambda: np.zeros(nA))
+    version = 'a'
     ############################
     # YOUR IMPLEMENTATION HERE #
+    for e in range(1, n_episodes + 1):
+        state = env.reset()
 
-        # define decaying epsilon
-
-
-
-        # initialize the episode
+        # initialize the episode 
+        episode_buffer = []
 
         # generate empty episode list
+        state_action_visited = []
 
         # loop until one episode generation is done
+        while True:
 
-
-            # get an action from epsilon greedy policy
+            # get an action from epsilon greedy policy 
+            action = epsilon_greedy(Q, state, nA, epsilon)
 
             # return a reward and new state
+            next_state, reward, done, _ = env.step(action)
 
             # append state, action, reward to episode
+            episode_buffer.insert(0, ((state, action), reward)) 
 
-            # update state to new state
+            # update state to new state 
+            if done:
+                break 
+            state = next_state 
 
 
-
-        # loop for each step of episode, t = T-1, T-2, ...,0
+        G = 0 
+        # loop for each step of episode, t = T-1, T-2, ...,0 
+        for (state_action, reward) in episode_buffer:
 
             # compute G
+            G = (gamma * G) + reward 
 
             # unless the pair state_t, action_t appears in <state action> pair list
+            if state_action not in state_action_visited:
+                state_action_visited.append(state_action)
 
                 # update return_count
+                returns_count[state_action] += 1
 
                 # update return_sum
+                returns_sum[state_action] += G
 
-                # calculate average return for this state over all sampled episodes
+                (state, action) = state_action
+
+                # calculate average return for this state over all sampled episodes 
+                if version == 'a':
+                    Q[state][action] = returns_sum[state_action] / returns_count[state_action]
+                else:
+                    Q[state][action] = Q[state][action] + ((1 / returns_count[state_action]) * (G - Q[state][action])) 
+        eps = 1/e
+        epsilon = epsilon - (0.1 / n_episodes) 
 
     return Q

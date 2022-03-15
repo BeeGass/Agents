@@ -208,7 +208,6 @@ def mc_control_epsilon_greedy(env, n_episodes, gamma = 1.0, epsilon = 0.1):
     # a nested dictionary that maps state -> (action -> action-value)
     # e.g. Q[state] = np.darrary(nA)
     nA = env.action_space.n
-    eps = 1
     Q = defaultdict(lambda: np.zeros(nA))
     version = 'a'
     ############################
@@ -264,7 +263,7 @@ def mc_control_epsilon_greedy(env, n_episodes, gamma = 1.0, epsilon = 0.1):
                     Q[state][action] = returns_sum[state_action] / returns_count[state_action]
                 else:
                     Q[state][action] = Q[state][action] + ((1 / returns_count[state_action]) * (G - Q[state][action])) 
-        eps = 1/e
+        
         epsilon = epsilon - (0.1 / n_episodes) 
 
     return Q

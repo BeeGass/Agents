@@ -1,0 +1,53 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.12.11
+    framework: torch
+    is_jupyter_run: true
+    is_kaggle_kernel: false
+    python_version: 3.8.10
+    start_time: 1648051394
+    t:
+      1:
+      - 1
+      - 41
+      2:
+      - 1
+      - 41
+      3:
+      - 2
+      - 16
+      4: 3.8.10
+      5: 0.12.11
+      8:
+      - 1
+      - 5
+alpha:
+  desc: null
+  value: 0.009648365332802826
+batch_size:
+  desc: null
+  value: 64
+decay_rate:
+  desc: null
+  value: 0.745921892258523
+delta:
+  desc: null
+  value: 3.85730649755779
+epsilon:
+  desc: null
+  value: 0.4782102231285333
+gamma:
+  desc: null
+  value: 0.4148933537576313
+max_episodes:
+  desc: null
+  value: 1000
+max_steps:
+  desc: null
+  value: 10000
+replay_buffer_size:
+  desc: null
+  value: 10000

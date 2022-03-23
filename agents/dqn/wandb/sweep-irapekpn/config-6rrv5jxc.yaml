@@ -1,0 +1,20 @@
+wandb_version: 1
+
+alpha:
+  value: 0.04070038499582011
+batch_size:
+  value: 64
+decay_rate:
+  value: 0.6317389853786282
+delta:
+  value: 3.834270353255744
+epsilon:
+  value: 0.5846041121665984
+gamma:
+  value: 0.4754705213868177
+max_episodes:
+  value: 1000
+max_steps:
+  value: 10000
+replay_buffer_size:
+  value: 10000

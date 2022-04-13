@@ -1,0 +1,1 @@
+{"episode": 999, "mean episodic reward": 1.524, "_timestamp": 1649830537, "_runtime": 757, "reward per episode": 2.0, "step_count": 222, "loss per episode": 126.36654663085938, "mean episodic loss": 5429513216.0, "epsilon": 0.1, "_step": 999, "_wandb": {"runtime": 755}}

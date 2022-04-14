@@ -1,3 +1,6 @@
+import torch
+import torch.nn as nn
+
 class Agent(nn.Module):
     def __init__(self, pred_model, target_model):
         super(Agent, self).__init__()

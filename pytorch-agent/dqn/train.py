@@ -1,4 +1,6 @@
-
+import torch
+from torch import nn
+import gym 
 
 def run_episode(environment, the_agent, replay_buffer, state, epsilon, gamma, loss_fn, optimizer, scheduler):
     step_count = 0
@@ -14,18 +16,13 @@ def run_episode(environment, the_agent, replay_buffer, state, epsilon, gamma, lo
                                 epsilon=epsilon)
         
         #1. render environment only when flag is set to True
-        # if render:
-        #     env_screen = environment.le_env.render(mode = 'rgb_array')
-        #     images = wandb.Image(env_screen)
-        #     wandb.log({"frame": images, "step_count": step_count}, step=step_count)
-        #     time.sleep(0.001)
+        # TODO: implement rendering  
         
         #2. pass action to environment
         (next_state, reward, done, _) = environment.le_env.step(action)
         
         #3. get s' back from environment and preprocess (s' -> preprocessed_s')
         preprocessed_next_state = preprocess_two(next_state)
-        # preprocessed_next_state = preprocess(next_state)
         
         #4. add transition (s, a, s', r) to replay buffer
         replay_buffer.add_to_rb((state, action, preprocessed_next_state, np.sign(reward), done))
@@ -35,7 +32,6 @@ def run_episode(environment, the_agent, replay_buffer, state, epsilon, gamma, lo
             loss = train(replay_buffer, the_agent, loss_fn, optimizer, scheduler, gamma)
             cumulative_loss += loss
             
-        
         cumulative_reward += reward
         
         #6. check max number of time steps has been reached or if game is complete
@@ -55,10 +51,8 @@ def run():
         
         # initialize gym environment
         environment = Gym_Env(env_name='ALE/Breakout-v5', max_steps=config.max_steps, max_episodes=config.max_episodes)
-        #environment = Gym_Env(env_name='CartPole-v1', max_steps=config.max_steps, max_episodes=config.max_episodes)
         
         # initialize prediction network
-        #pred_net = Deep_Q_Network(environment.le_env.action_space.n).to(device)
         pred_net = DQN(4, 4).to(device)
         target_net = DQN(4, 4).to(device)
         
@@ -67,7 +61,7 @@ def run():
         the_agent.copy_pred_to_target()
         
         # define loss function
-        loss_fn = nn.SmoothL1Loss() #nn.HuberLoss(reduction='mean', delta=config.delta)
+        loss_fn = nn.SmoothL1Loss()
         
         # define optimizer
         optimizer = build_optimizer(model=the_agent.prediction_net, 
@@ -127,3 +121,6 @@ def run():
                 wandb.log({"episode": e, "loss per episode": cumulative_loss}, step=e)
                 wandb.log({"episode": e, "mean episodic loss": episode_cumulative_loss/(e+1)}, step=e)
                 wandb.log({"episode": e, "epsilon": epsilon}, step=e)
+
+
+

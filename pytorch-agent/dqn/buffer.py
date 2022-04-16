@@ -1,7 +1,7 @@
 from random import sample
 
 class Replay_Buffer():
-    def __init__(self, capacity=35000, mini_batch_size=64):
+    def __init__(self, capacity=25000, mini_batch_size=64):
         self.rb = []
         self.capacity = capacity
         self.mini_batch_size = mini_batch_size
